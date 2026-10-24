@@ -11,18 +11,21 @@ The notes are written for someone learning system theory from scratch: every con
 Advanced-System-Theory/
 ├── README.md                                   ← you are here
 ├── course-material/                            ← put your local copies of the course PDFs here (not published)
-└── Exercise-02_System-Properties-and-Linearization/
+├── Exercise-02_System-Properties-and-Linearization/
     ├── README.md                               ← overview and progress of this exercise
     ├── concepts.md                             ← Lecture 2 theory: everything needed for Exercise 2
     ├── solutions.md                            ← step-by-step solutions
+    ├── pdf/                                    ← PDF versions of concepts.md and solutions.md
     └── python/                                 ← scripts that verify every result, and figures
+└── tools/
+    └── build_pdfs.sh                           ← regenerate the PDFs from the Markdown
 ```
 
 ## Exercises
 
 | # | Lecture | Topic | Concepts | Solutions | Code | Status |
 |---|---|---|---|---|---|---|
-| 2 | Week 02 | System properties and linearization | [md](Exercise-02_System-Properties-and-Linearization/concepts.md) | [md](Exercise-02_System-Properties-and-Linearization/solutions.md) | [python](Exercise-02_System-Properties-and-Linearization/python) | Tasks 1–3 ✅ |
+| 2 | Week 02 | System properties and linearization | [md](Exercise-02_System-Properties-and-Linearization/concepts.md) · [pdf](Exercise-02_System-Properties-and-Linearization/pdf/concepts.pdf) | [md](Exercise-02_System-Properties-and-Linearization/solutions.md) · [pdf](Exercise-02_System-Properties-and-Linearization/pdf/solutions.pdf) | [python](Exercise-02_System-Properties-and-Linearization/python) | Tasks 1–3 ✅ |
 
 ## How to use
 
@@ -36,4 +39,4 @@ Advanced-System-Theory/
    python Exercise-02_System-Properties-and-Linearization/python/task3_discrete_time.py
    ```
 
-The Markdown files use LaTeX math, which GitHub renders directly.
+The Markdown files use LaTeX math, which GitHub renders directly. The PDFs can be rebuilt with `bash tools/build_pdfs.sh` (needs `pandoc` and `xelatex`).

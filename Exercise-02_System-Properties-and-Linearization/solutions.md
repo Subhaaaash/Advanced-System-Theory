@@ -1,3 +1,8 @@
+---
+title: "Exercise 2 — Step-by-Step Solutions"
+subtitle: "Advanced System Theory · System Properties and Linearization"
+---
+
 # Exercise 2 — Step-by-Step Solutions
 
 **Course:** Advanced System Theory (Paderborn University, Automatic Control Group RAT, Prof. Dr. Erdal Kayacan)

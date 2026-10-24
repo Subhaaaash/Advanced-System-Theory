@@ -1,3 +1,8 @@
+---
+title: "Exercise 2 — Concepts"
+subtitle: "Advanced System Theory · Week 02: System Properties and Linearization"
+---
+
 # Exercise 2 — Concepts
 
 **Course:** Advanced System Theory (Paderborn University, Automatic Control Group RAT, Prof. Dr. Erdal Kayacan), winter semester 2026/27

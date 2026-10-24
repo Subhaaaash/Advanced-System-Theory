@@ -6,8 +6,8 @@ Lecture: Week 02 — System properties and linearization of nonlinear systems. P
 
 | File | What it contains |
 |---|---|
-| [`concepts.md`](concepts.md) | Signal manipulation (shift, scaling, the "replace $t$" rule), linearity, time invariance, causality, invertibility, stability, the lecture property table, nonlinear state space, equilibria, Jacobian linearization (pendulum, cart-pendulum), 2×2 eigenvalue toolkit, discrete-time solution formula, $A^k$ by diagonalization, modes, internal vs BIBO stability, cheat sheet |
-| [`solutions.md`](solutions.md) | Task 1 (a–d), Task 2 (a, b, and the I/O relation), Task 3 (a–d), fully worked |
+| [`concepts.md`](concepts.md) · [PDF](pdf/concepts.pdf) | Signal manipulation (shift, scaling, the "replace $t$" rule), linearity, time invariance, causality, invertibility, stability, the lecture property table, nonlinear state space, equilibria, Jacobian linearization (pendulum, cart-pendulum), 2×2 eigenvalue toolkit, discrete-time solution formula, $A^k$ by diagonalization, modes, internal vs BIBO stability, cheat sheet |
+| [`solutions.md`](solutions.md) · [PDF](pdf/solutions.pdf) | Task 1 (a–d), Task 2 (a, b, and the I/O relation), Task 3 (a–d), fully worked |
 | [`python/task1_system_properties.py`](python/task1_system_properties.py) | Task 1: numerical tests of causality, time invariance and linearity + the counterexamples |
 | [`python/task2_linearization.py`](python/task2_linearization.py) | Task 2: symbolic Jacobians, equilibria (with numerical root search), eigenvalues, transfer function, phase-plane figures |
 | [`python/task3_discrete_time.py`](python/task3_discrete_time.py) | Task 3: iteration, closed forms of $x[k]$ and $A^k$, forced response, impulse response, figure |
