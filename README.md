@@ -18,7 +18,8 @@ Advanced-System-Theory/
     ├── pdf/                                    ← PDF versions of concepts.md and solutions.md
     └── python/                                 ← scripts that verify every result, and figures
 └── tools/
-    └── build_pdfs.sh                           ← regenerate the PDFs from the Markdown
+    ├── build_pdfs.sh                           ← regenerate the PDFs from the Markdown
+    └── pdf-header.tex                          ← LaTeX header: bold vectors/matrices as in the lecture
 ```
 
 ## Exercises

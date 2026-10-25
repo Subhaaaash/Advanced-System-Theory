@@ -2,12 +2,11 @@
 
 Each system is written as a function that takes an input signal u (a Python
 function of t) and returns the output signal y (again a function of t).
-The three properties are then tested on random test signals:
+The three definitions of the lecture are then tested on random test signals:
 
-* linearity       : S[a*u1 + b*u2] == a*S[u1] + b*S[u2]
-* time invariance : S[u(. - T)](t) == S[u](t - T)
-* causality       : two inputs that agree for t <= T0 must give outputs
-                    that agree for t <= T0
+* linearity (Def. 1.1)       : u1 -> y1, u2 -> y2  =>  a1*u1 + a2*u2 -> a1*y1 + a2*y2
+* time-invariance (Def. 1.2) : y(u(t), t - T) == y(u(t - T), t)   for T > 0
+* causality (Def. 1.3)       : u1(t) = u2(t) for all t <= T  =>  y1(t) = y2(t) for all t <= T
 
 A numerical test can only *disprove* a property (one counterexample is
 enough). Passing the test is a sanity check, the proof is in solutions.md.

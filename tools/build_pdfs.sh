@@ -13,7 +13,7 @@ for dir in Exercise-*/; do
     # LaTeX cannot embed, by a pointer to the file in the repository
     sed -e '0,/^# /{/^# /d}' \
         -e 's|^!\[\([^]]*\)\](\([^)]*\.gif\))$|*Animation "\1": open `\2` in the repository.*|' "$md" | pandoc -f markdown-implicit_figures -o "$out" \
-      --resource-path="$dir" --pdf-engine=xelatex \
+      --resource-path="$dir" --pdf-engine=xelatex -H tools/pdf-header.tex \
       -V geometry:margin=2.2cm -V mainfont="DejaVu Sans" -V monofont="DejaVu Sans Mono" \
       -V fontsize=10pt -V colorlinks=true -V linkcolor=blue -V urlcolor=blue
     echo "built $out"
