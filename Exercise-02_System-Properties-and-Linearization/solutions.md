@@ -399,8 +399,10 @@ $$
 \det(\lambda\boldsymbol{I} - \boldsymbol{A}) = \lambda^2 + 3\lambda + 2 = (\lambda + 1)(\lambda + 2) = 0\ \Longrightarrow\ \lambda_1 = -1,\quad \lambda_2 = -2 .
 $$
 
-- $\lambda_1 = -1$: $\boldsymbol{A} + \boldsymbol{I} = \begin{bmatrix}1 & -2\\ 1 & -2\end{bmatrix}$, the row gives $v_1 - 2v_2 = 0$ ⇒ $\boldsymbol{v}_1 = \begin{bmatrix}2\\ 1\end{bmatrix}$. Check: $\boldsymbol{A}\boldsymbol{v}_1 = \begin{bmatrix}0 - 2\\ 2 - 3\end{bmatrix} = \begin{bmatrix}-2\\ -1\end{bmatrix} = -\boldsymbol{v}_1$ ✓.
-- $\lambda_2 = -2$: $\boldsymbol{A} + 2\boldsymbol{I} = \begin{bmatrix}2 & -2\\ 1 & -1\end{bmatrix}$, the row gives $v_1 - v_2 = 0$ ⇒ $\boldsymbol{v}_2 = \begin{bmatrix}1\\ 1\end{bmatrix}$. Check: $\boldsymbol{A}\boldsymbol{v}_2 = \begin{bmatrix}-2\\ 1 - 3\end{bmatrix} = -2\boldsymbol{v}_2$ ✓.
+Each eigenvector solves $(\lambda_i\boldsymbol{I} - \boldsymbol{A})\boldsymbol{v} = \boldsymbol{0}$ — the same matrix as in the characteristic equation. (Using $\boldsymbol{A} - \lambda_i\boldsymbol{I}$ instead flips every sign and gives the same eigenvectors.)
+
+- $\lambda_1 = -1$: $\lambda_1\boldsymbol{I} - \boldsymbol{A} = \begin{bmatrix}-1 - 0 & 0 + 2\\ 0 - 1 & -1 + 3\end{bmatrix} = \begin{bmatrix}-1 & 2\\ -1 & 2\end{bmatrix}$, the row gives $-v_1 + 2v_2 = 0$ ⇒ $\boldsymbol{v}_1 = \begin{bmatrix}2\\ 1\end{bmatrix}$. Check: $\boldsymbol{A}\boldsymbol{v}_1 = \begin{bmatrix}0 - 2\\ 2 - 3\end{bmatrix} = \begin{bmatrix}-2\\ -1\end{bmatrix} = -\boldsymbol{v}_1$ ✓.
+- $\lambda_2 = -2$: $\lambda_2\boldsymbol{I} - \boldsymbol{A} = \begin{bmatrix}-2 - 0 & 0 + 2\\ 0 - 1 & -2 + 3\end{bmatrix} = \begin{bmatrix}-2 & 2\\ -1 & 1\end{bmatrix}$, the row gives $-v_1 + v_2 = 0$ ⇒ $\boldsymbol{v}_2 = \begin{bmatrix}1\\ 1\end{bmatrix}$. Check: $\boldsymbol{A}\boldsymbol{v}_2 = \begin{bmatrix}-2\\ 1 - 3\end{bmatrix} = -2\boldsymbol{v}_2$ ✓.
 
 **Notice:** $\boldsymbol{B} = \boldsymbol{v}_2$. The input enters exactly along the eigenvector of $\lambda_2 = -2$. This will matter in (c) and (d).
 

@@ -601,7 +601,7 @@ $\boldsymbol{A}$ acts on $\boldsymbol{v}$ just by scaling it. Applying $\boldsym
 *How to compute them:*
 
 1. Eigenvalues: solve $\det(\lambda\boldsymbol{I} - \boldsymbol{A}) = 0$ (§10.1).
-2. For each $\lambda$: solve $(\boldsymbol{A} - \lambda\boldsymbol{I})\boldsymbol{v} = \boldsymbol{0}$. The matrix $\boldsymbol{A} - \lambda\boldsymbol{I}$ is singular, so its rows are multiples of each other; one row $\begin{bmatrix}p & q\end{bmatrix}$ gives $pv_1 + qv_2 = 0$, and $\boldsymbol{v} = \begin{bmatrix}q\\ -p\end{bmatrix}$ (or any multiple) works.
+2. For each $\lambda$: solve $(\lambda\boldsymbol{I} - \boldsymbol{A})\boldsymbol{v} = \boldsymbol{0}$ (the same matrix as in step 1; $(\boldsymbol{A} - \lambda\boldsymbol{I})\boldsymbol{v} = \boldsymbol{0}$ is equivalent — every sign flips, the solutions don't change). The matrix $\lambda\boldsymbol{I} - \boldsymbol{A}$ is singular, so its rows are multiples of each other; one row $\begin{bmatrix}p & q\end{bmatrix}$ gives $pv_1 + qv_2 = 0$, and $\boldsymbol{v} = \begin{bmatrix}q\\ -p\end{bmatrix}$ (or any multiple) works.
 3. Check: $\boldsymbol{A}\boldsymbol{v} = \lambda\boldsymbol{v}$.
 
 ### 12.2 Method 1 — decompose the initial state
