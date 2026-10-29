@@ -7,7 +7,7 @@ subtitle: "Advanced System Theory · System Properties and Linearization"
 
 **Course:** Advanced System Theory (Paderborn University, Automatic Control Group RAT, Prof. Dr. Erdal Kayacan)
 **Covers:** Task 1 (a–d), Task 2 (a, b and the I/O-relation part, called "2c" here because the sheet labels it "b" twice), Task 3 (a–d)
-**Checking:** no official solution was available when this was written. Every result is verified by the scripts in [`python/`](python/) (symbolic algebra with SymPy, numerical search, simulation).
+**Checking:** every result has been cross-checked against the official *Solution to Exercise 2* (RAT) and agrees with it; notes marked **"Official solution:"** point out where the official sheet presents something differently. Every result is also verified by the scripts in [`python/`](python/) (symbolic algebra with SymPy, numerical search, simulation).
 
 Every step is written out. References like "Concepts §3.2" point to [`concepts.md`](concepts.md). The notation is that of the lecture slides: bold symbols are vectors and matrices ($\boldsymbol{x}$, $\boldsymbol{f}$, $\boldsymbol{A}$, …), $(\boldsymbol{x}_0,\boldsymbol{u}_0)$ is the equilibrium, $\Delta\boldsymbol{x} = \boldsymbol{x} - \boldsymbol{x}_0$, and $\cdot|_0$ means evaluation at the equilibrium. Symbols given on the exercise sheet ($\phi$, $(\boldsymbol{x}^\ast, u^\ast)$, $\delta[k]$, …) are kept as they are.
 
@@ -165,6 +165,14 @@ So, as for the pendulum of slide 18, there is an infinite number of equilibrium 
 
 *Check $k = 1$:* $f_1 = -\sin\pi = 0$, $f_2 = -(-1) + \cos\pi = 1 - 1 = 0$ ✓.
 
+**Official solution:** the official sheet restricts the angle to one turn, $x_1\in[0, 2\pi)$. In that range only $k = 0$ and $k = 1$ remain, i.e. the two equilibrium points
+
+$$
+\boldsymbol{x}^{\ast(1)} = \begin{bmatrix}0\\ 1\end{bmatrix},\qquad \boldsymbol{x}^{\ast(2)} = \begin{bmatrix}\pi\\ -1\end{bmatrix},
+$$
+
+which are exactly the "$k$ even" and "$k$ odd" representatives above. (The official sheet writes the second one as $(k\pi, -1)$; note that $x_2 = -1$ holds only for **odd** $k$ — for even $k$ the general formula gives $x_2 = +1$.) Both presentations lead to the same two linear models in Step 4.
+
 ### Step 2 — Jacobian matrix (symbolic)
 
 $$
@@ -280,6 +288,8 @@ $$
 $$
 \frac{\partial\boldsymbol{f}}{\partial\boldsymbol{x}} = \begin{bmatrix}2x_1 - x_2\sin x_1 & 2x_2 + \cos x_1\\ 1 + 2x_1 + \sin x_2 & 1 + 2x_2 + x_1\cos x_2\end{bmatrix}.
 $$
+
+**Official solution:** the bottom-right entry is printed there as $1 + 2x_2 + x_1\cos x_1$ — a typo: $\frac{\partial}{\partial x_2}(x_1\sin x_2) = x_1\cos x_2$. Both equilibria have $x_1 = 0$, so the term vanishes and the numerical matrices are identical. The official proof that no other equilibria exist uses a different inequality argument (completing the square in (I), then concavity of $\sin$); it reaches the same conclusion $x_1 = 0$.
 
 ### Step 3 — Evaluate at $\boldsymbol{x}_0 = [0,\ 0]^\top$
 
@@ -452,7 +462,19 @@ $$
 
 **For $\boldsymbol{x}[0] = [1, 0]^\top$:** $\boldsymbol{x}[k]$ contains $-(-2)^k[1,1]^\top$, whose size is $2^k\to\infty$ with alternating sign ($1, -2, 4, -8, \dots$). The other part $(-1)^k[2,1]^\top$ stays bounded but keeps flipping sign. So $\lVert\boldsymbol{x}[k]\rVert\to\infty$: **the state does not converge; it diverges with alternating sign** (as $\boldsymbol{x}[3] = [6, 7]^\top$ already suggests).
 
-**For arbitrary $\boldsymbol{x}[0]\in\mathbb{R}^2$:** decompose $\boldsymbol{x}[0] = c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2$ (always possible, $\boldsymbol{v}_1, \boldsymbol{v}_2$ are a basis), so $\boldsymbol{x}[k] = c_1(-1)^k\boldsymbol{v}_1 + c_2(-2)^k\boldsymbol{v}_2$.
+**For arbitrary $\boldsymbol{x}[0]\in\mathbb{R}^2$:** decompose $\boldsymbol{x}[0] = c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2$ (always possible, $\boldsymbol{v}_1, \boldsymbol{v}_2$ are a basis). Writing $\boldsymbol{x}[0] = [a,\ b]^\top$:
+
+$$
+\begin{bmatrix}a\\ b\end{bmatrix} = c_1\begin{bmatrix}2\\ 1\end{bmatrix} + c_2\begin{bmatrix}1\\ 1\end{bmatrix}
+\iff \begin{cases}2c_1 + c_2 = a\\ c_1 + c_2 = b\end{cases}
+\iff c_1 = a - b,\quad c_2 = 2b - a
+$$
+
+(subtract the second equation from the first to get $c_1$; then $c_2 = b - c_1$). *Check:* $(a - b)[2, 1]^\top + (2b - a)[1, 1]^\top = [a,\ b]^\top$ ✓. Hence
+
+$$
+\boldsymbol{x}[k] = (a - b)(-1)^k\begin{bmatrix}2\\ 1\end{bmatrix} + (2b - a)(-2)^k\begin{bmatrix}1\\ 1\end{bmatrix}.
+$$
 
 | Case | Behaviour of $\boldsymbol{x}[k]$ |
 |---|---|
@@ -460,7 +482,7 @@ $$
 | $c_2 = 0$, $c_1\ne0$ ($\boldsymbol{x}[0] = c_1[2,1]^\top$) | bounded but **not convergent**: alternates between $c_1[2,1]^\top$ and $-c_1[2,1]^\top$ ($\lambda_1 = -1$ on the unit circle) |
 | $\boldsymbol{x}[0] = \boldsymbol{0}$ | stays $\boldsymbol{0}$ |
 
-Hence **$\boldsymbol{x}[k]$ converges only for $\boldsymbol{x}[0] = \boldsymbol{0}$**. In the language of Concepts §13.2: the largest eigenvalue magnitude is $\max\lvert\lambda_i\rvert = 2 > 1$, so the system is **not internally stable (unstable)**. Even without $\lambda_2$, the eigenvalue $\lambda_1 = -1$ alone would prevent asymptotic stability.
+For convergence both coefficients must vanish: $a - b = 0$ and $2b - a = 0$, i.e. $a = b = 0$. Hence **$\boldsymbol{x}[k]$ converges only for $\boldsymbol{x}[0] = \boldsymbol{0}$** — the system is **not internally asymptotically stable** (the official solution's wording). In the language of Concepts §13.2: the largest eigenvalue magnitude is $\max\lvert\lambda_i\rvert = 2 > 1$, so the system is **not internally stable (unstable)**. Even without $\lambda_2$, the eigenvalue $\lambda_1 = -1$ alone would prevent asymptotic stability.
 
 ### 3(c) — Closed form with input
 
@@ -497,6 +519,12 @@ $$
 Values: $\boldsymbol{y}[1] = [1, 1]^\top$, $\boldsymbol{y}[2] = [-2, -2]^\top$, $\boldsymbol{y}[3] = [4, 4]^\top$, $\boldsymbol{y}[4] = [-8, -8]^\top$, …, $\lvert y_i[k]\rvert = 2^{k-1}\to\infty$.
 
 The input $\delta[k]$ is bounded ($\lvert u[k]\rvert\le1$), but the output is unbounded. **The output does not remain bounded as $k\to\infty$ ⇒ the system is not BIBO stable.**
+
+**Equivalently (as in the official solution):** an LTI system is BIBO stable exactly when its impulse response is **absolutely summable**. Here it is not:
+
+$$
+\sum_{k=0}^{\infty}\lVert\boldsymbol{y}[k]\rVert = \big\lVert[1,\ 1]^\top\big\rVert\sum_{k=1}^{\infty}2^{k-1} = \sqrt2\,(1 + 2 + 4 + 8 + \dots) = \infty .
+$$
 
 **Link to (b).** The unstable eigenvalue $\lambda_2 = -2$ is excited directly by the input (since $\boldsymbol{B} = \boldsymbol{v}_2$) and seen by the output ($\boldsymbol{C} = \boldsymbol{I}$), so internal instability shows up in the I/O behaviour. If $\boldsymbol{B}$ had been along $\boldsymbol{v}_1$ instead, the impulse response would be $(-1)^{k-1}\boldsymbol{v}_1$ — bounded, though not decaying — even though the system is still internally unstable. This is why internal stability and BIBO stability are different concepts (Concepts §13.3).
 
