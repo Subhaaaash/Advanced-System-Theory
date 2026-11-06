@@ -18,6 +18,7 @@ Advanced-System-Theory/
 │   ├── pdf/                                    ← PDF versions of concepts.md and solutions.md
 │   └── python/                                 ← scripts that verify every result, and figures
 ├── Exercise-03_Response-of-Linear-Systems/     ← same structure (Week 03)
+├── Exercise-04_Discrete-Time-Systems-and-Discretization/ ← same structure (Week 04)
 └── tools/
     ├── build_pdfs.sh                           ← regenerate the PDFs from the Markdown
     └── pdf-header.tex                          ← LaTeX header: bold vectors/matrices as in the lecture
@@ -29,6 +30,7 @@ Advanced-System-Theory/
 |---|---|---|---|---|---|---|
 | 2 | Week 02 | System properties and linearization | [md](Exercise-02_System-Properties-and-Linearization/concepts.md) · [pdf](Exercise-02_System-Properties-and-Linearization/pdf/concepts.pdf) | [md](Exercise-02_System-Properties-and-Linearization/solutions.md) · [pdf](Exercise-02_System-Properties-and-Linearization/pdf/solutions.pdf) | [python](Exercise-02_System-Properties-and-Linearization/python) | Tasks 1–3 ✅ · checked against official solution ✅ |
 | 3 | Week 03 | Response of linear systems | [md](Exercise-03_Response-of-Linear-Systems/concepts.md) · [pdf](Exercise-03_Response-of-Linear-Systems/pdf/concepts.pdf) | [md](Exercise-03_Response-of-Linear-Systems/solutions.md) · [pdf](Exercise-03_Response-of-Linear-Systems/pdf/solutions.pdf) | [python](Exercise-03_Response-of-Linear-Systems/python) | Tasks 1–4 ✅ |
+| 4 | Week 04 | Discrete-time systems and discretization | [md](Exercise-04_Discrete-Time-Systems-and-Discretization/concepts.md) · [pdf](Exercise-04_Discrete-Time-Systems-and-Discretization/pdf/concepts.pdf) | [md](Exercise-04_Discrete-Time-Systems-and-Discretization/solutions.md) · [pdf](Exercise-04_Discrete-Time-Systems-and-Discretization/pdf/solutions.pdf) | [python](Exercise-04_Discrete-Time-Systems-and-Discretization/python) | Tasks 1–5 ✅ |
 
 ## How to use
 
@@ -42,6 +44,7 @@ Advanced-System-Theory/
    python Exercise-02_System-Properties-and-Linearization/python/task3_discrete_time.py
    python Exercise-03_Response-of-Linear-Systems/python/task1_modes_impulse.py
    python Exercise-03_Response-of-Linear-Systems/python/task4_cayley_hamilton.py
+   python Exercise-04_Discrete-Time-Systems-and-Discretization/python/task5_discretization.py
    ```
 
 The Markdown files use LaTeX math, which GitHub renders directly. The PDFs can be rebuilt with `bash tools/build_pdfs.sh` (needs `pandoc` and `xelatex`).
