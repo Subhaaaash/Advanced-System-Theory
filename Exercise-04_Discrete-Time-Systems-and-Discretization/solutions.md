@@ -265,7 +265,7 @@ $$
 Adding $y_{zi}$:
 
 $$
-\boxed{\;\text{System 1, step: } y[k] = \frac16 + \frac12(-1)^k - \frac23(-2)^k,\quad k\ge0:\quad 0,\ 1,\ -2,\ 6,\ -10,\ \dots\;}
+\boxed{\;\text{System 1, step: } y[k] = \frac16 + \frac12(-1)^k - \frac23(-2)^k,\quad k\ge0:\quad 0,\ 1,\ -2,\ 5,\ -10,\ \dots\;}
 $$
 
 (The formula also gives the right value $0$ at $k = 0$.) *Check by iteration:* $\boldsymbol{x}[1] = \boldsymbol{A}\boldsymbol{x}[0] + \boldsymbol{B} = [-1, 2]^\top + [1, -1]^\top = [0, 1]^\top$, $y[1] = 1$ ✓; $\boldsymbol{x}[2] = [0, -2]^\top + [1, -1]^\top = [1, -3]^\top$, $y[2] = -2$ ✓ (formula: $\frac16 + \frac12 - \frac83 = -2$ ✓).
@@ -297,7 +297,7 @@ $$
 **Step 5 — Step response.** $y_{zs}$ is the same geometric sum as for system 1, $\frac16 - \frac12(-1)^k + \frac13(-2)^k$; adding $y_{zi} = (-1)^k$:
 
 $$
-\boxed{\;\text{System 2, step: } y[k] = \frac16 + \frac12(-1)^k + \frac13(-2)^k,\quad k\ge0:\quad 1,\ -1,\ 2,\ -2,\ 6,\ \dots\;}
+\boxed{\;\text{System 2, step: } y[k] = \frac16 + \frac12(-1)^k + \frac13(-2)^k,\quad k\ge0:\quad 1,\ -1,\ 2,\ -3,\ 6,\ \dots\;}
 $$
 
 *Check by iteration:* $\boldsymbol{x}[1] = \boldsymbol{A}\boldsymbol{x}[0] + \boldsymbol{B} = [-1, 1]^\top + [0, 1]^\top = [-1, 2]^\top$, $y[1] = -1$ ✓; $\boldsymbol{x}[2] = [2, 2 - 6]^\top + [0, 1]^\top = [2, -3]^\top$, $y[2] = 2$ ✓.
